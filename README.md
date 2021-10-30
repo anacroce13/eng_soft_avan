@@ -1,6 +1,5 @@
-# Controle de Resíduos
-## da empresa Contract Garbage 
-### Projeto em PHP de resolução de exercícios de tópicos avançados de Engenharia de Software
+# Controle de Resíduos Simples 
+### Projeto em PHP de resolução de exercícios de tópicos avançados de Engenharia de Software, CCT UDESC
 
 O objetivo deste projeto é demonstrar o uso de padrões de projeto no desenvolvimento de software.
 
@@ -94,16 +93,50 @@ Canoinhas | Olivia | Lixo | 17 | Conti
      		   a.nome'
       ```
 
-### Pendências: 
-
 3. Montar a estrutura de pastas da aplicação.
+   * Eu quis inicialmente utilizar uma estrutura de RESTful APIs nesta aplicação PHP pelas seguintes razões:
+     * Um layout, mesmo utilizando frameworks como o ***Bootstrap***, consomem muito tempo em detalhes de _UI_.
+     * Não gostaria de desenvolver um layout sem que esteja minimamente responsivo ou adequado à possível continuidade de estudos.
+     * APIs podem ser testadas de forma facilitada com uma conta gratuita no [Postman](https://www.postman.com/). 
+   * Desta forma, a seguinte estrutura foi definida:
+   - api
+     - aterro
+       - read.php
+     - caminhao
+       - read.php
+     - devedor
+       - read.php
+     - movimentacao
+       - read.php
+     - tiporesiduo
+       - read.php
+   - classes
+     - Aterro.php
+     - Caminhao.php
+     - Devedor.php
+     - Movimentacao.php
+     - TipoResiduo.php
+   - config
+     - bancodados.php
 
 4. Criar um arquivo PHP de conexão com o banco de dados.
+   * Mesmo tendo sido recomendado por colegas que conhecem melhor sobre `<?php ?>`, não adotei _Singleton_ na conexão com o banco de dados pelas seguintes razões:
+     * Não foi um padrão de projeto designado para mim.
+     * Acredito que a utilização do `PDO::` e da sua respectiva função `__construct()`, além de adequada para este tipo de projeto e banco de dados, instancia adequadamente as conexões e trata razoavelmente _loops_, ociosidade e demais situações.
 
-5. Criar as classes e métodos das entidades em PHP.
+5. Criar as classes e seus respectivos métodos em PHP.
+   * As classes foram devidamente criadas com os métodos de CRUD e suas respectivas operações em banco de dados.
+   
 
-6. Montar as operações de CRUD.
+### Pendências: 
 
-7. Criar um layout de tela.
+5. Criar as classes e seus respectivos métodos em PHP.
+   * Avaliar se a classe de Movimentação necessita de tratamento, ou se isto deve ser colocado no escopo das APIs.
 
-8. Implementar os padrões de projeto designados.
+6. Montar as APIs que acionam os métodos e retornam dados em JSON.
+   * Avaliar se o uso do `PDOStatement::fetchAll` atende às necessidades de junção de tabelas (depende de manter ou não as atuais propriedades da classe).
+   * Avaliar a implementação de como fazer os relatórios na API, criando uma espécie de parâmetro adicional na requisição correspondente ao código do relatório. Avaliar a necessidade de criar uma `class Relatorio{}`. 
+
+7. Implementar os padrões de projeto designados.
+
+8. ***BÔNUS:*** Criar um layout para a aplicação.
