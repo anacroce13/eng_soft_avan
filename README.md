@@ -95,21 +95,16 @@ Canoinhas | Olivia | Lixo | 17 | Conti
 
 3. Montar a estrutura de pastas da aplicação.
    * Eu quis inicialmente utilizar uma estrutura de RESTful APIs nesta aplicação PHP pelas seguintes razões:
-     * Um layout, mesmo utilizando frameworks como o ***Bootstrap***, consomem muito tempo em detalhes de _UI_.
+     * Um layout, mesmo utilizando frameworks como o ***Bootstrap***, consomem muito tempo em detalhes da _Interface de Usuário_.
      * Não gostaria de desenvolver um layout sem que esteja minimamente responsivo ou adequado à possível continuidade de estudos.
      * APIs podem ser testadas de forma facilitada com uma conta gratuita no [Postman](https://www.postman.com/). 
    * Desta forma, a seguinte estrutura foi definida:
    - api
-     - aterro
-       - read.php
-     - caminhao
-       - read.php
-     - devedor
-       - read.php
-     - movimentacao
-       - read.php
-     - tiporesiduo
-       - read.php
+     - atualizar.php
+     - dados.php
+     - excluir.php
+     - **listar.php** (primeira proposta desenvolvida)
+     - relatórios.php
    - classes
      - Aterro.php
      - Caminhao.php
